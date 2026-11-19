@@ -90,6 +90,154 @@
 }
 .ew-mockup-dialog{position:fixed;max-width:min(94vw,740px);max-height:94vh;padding:44px 16px 16px;border:0;border-radius:18px;background:#fff;overflow:auto;box-shadow:0 20px 80px #0005}.ew-mockup-dialog::backdrop{background:#061b38bb}.ew-mockup-dialog img{display:block;max-width:100%;max-height:78vh;width:auto;height:auto;margin:auto;object-fit:contain}.ew-mockup-close{position:absolute;top:8px;right:10px;display:grid;place-items:center;width:32px;height:32px;border:0;border-radius:50%;background:#edf3fc;color:#152344;cursor:pointer;font-size:24px;line-height:1}
 
+
+.ew-troubleshooting{background:#f4f6fa}
+.ew-troubleshooting > .page-width > h2{text-transform:uppercase;text-wrap:balance}
+.ew-troubleshooting > .page-width > h2 em{font-style:normal}
+.ew-troubleshooting .ew-lead{margin-bottom:44px}
+.ew-issues{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  min-width:0;
+  margin:0;
+  padding:24px 0 0;
+  border:0;
+}
+.ew-issue-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:0;
+  padding:30px 16px 20px;
+  border:1px solid #dfe5ef;
+  border-radius:20px;
+  background:#fff;
+  text-align:center;
+}
+.ew-issue-visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+.ew-issue-label{display:block;width:100%;flex:1;cursor:pointer}
+.ew-issue-label::before{content:"";position:absolute;inset:0;border-radius:20px}
+.ew-issue-number{
+  position:absolute;
+  top:0;
+  left:50%;
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  transform:translate(-50%,-50%);
+  border:4px solid #fff;
+  border-radius:50%;
+  background:#eaf1fd;
+  box-shadow:0 0 0 1px #dfe5ef;
+  color:#505d70;
+  font-size:22px;
+  font-weight:700;
+}
+.ew-issue-icon{
+  display:grid;
+  place-items:center;
+  width:78px;
+  height:78px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:#eaf1fd;
+  color:#0055d5;
+}
+.ew-issue-icon svg{width:48px;height:48px}
+.ew-issue-title{
+  display:block;
+  min-height:2.7em;
+  color:#101f43;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:700;
+  text-wrap:balance;
+}
+.ew-issue-description::before{
+  content:"";
+  display:block;
+  width:26px;
+  height:3px;
+  margin:14px auto;
+  border-radius:2px;
+  background:#0055d5;
+}
+.ew-issue-description{display:block;color:#555e6c;font-size:14px;line-height:1.6}
+.ew-issue-action{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  width:min(100%,200px);
+  margin-top:18px;
+  padding:10px 12px;
+  border:0;
+  border-radius:13px;
+  background:#eaf1fd;
+  color:#004dbf;
+  font:inherit;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+.ew-issue-action span{font-size:20px;line-height:1}
+.ew-issue-card:has(input:checked){border-color:#0055d5;background:#edf4ff}
+.ew-issue-card:has(input:checked) .ew-issue-number,
+.ew-issue-card:has(input:checked) .ew-issue-action,
+.ew-issue-action:hover{background:#0055d5;color:#fff}
+.ew-issue-card:has(input:focus-visible),
+.ew-issue-action:focus-visible,
+.ew-issue-close:focus-visible{outline:3px solid #1685ef;outline-offset:3px}
+.ew-issue-dialog{
+  position:fixed;
+  width:min(540px,calc(100% - 32px));
+  max-height:calc(100% - 32px);
+  padding:48px 24px 24px;
+  border:0;
+  border-radius:18px;
+  background:#fff;
+  color:#172b4b;
+  overflow:auto;
+  box-shadow:0 20px 80px #0005;
+}
+.ew-issue-dialog::backdrop{background:#061b38bb}
+.ew-troubleshooting .ew-issue-dialog h2{margin:0 0 18px;font-size:24px;text-align:left}
+.ew-issue-dialog h3{margin:16px 0 4px;font-size:16px}
+.ew-issue-dialog p{margin:0;line-height:1.65}
+.ew-issue-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:32px;
+  height:32px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#edf3fc;
+  color:#152344;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+@media(max-width:1000px){
+  .ew-issues{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:38px}
+}
+@media(max-width:520px){
+  .ew-issues{grid-template-columns:1fr}
+  .ew-troubleshooting .ew-lead{margin-bottom:30px}
+}
 </style></head><body><header class="site-header">
       <div class="topline">
         <span>Panasonic Vietnam</span>
@@ -206,7 +354,83 @@
     </details>
   </article>
 </div>
-</div></section><section class="ew-section ew-faq-section"><div class="page-width"><div class="ew-faq"><h3><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="10" r="5"/><path d="M6 29v-3a10 10 0 0 1 20 0v3"/></svg> FAQ</h3><div class="ew-faq-grid"><details open><summary>Làm sao để đăng ký tài khoản My Panasonic+?</summary><p>Mở ứng dụng My Panasonic+, chọn đăng ký và làm theo hướng dẫn. Nhập số điện thoại, xác thực OTP và hoàn thiện thông tin tài khoản.</p></details><details ><summary>Không nhận được mã OTP phải làm sao?</summary><p>Kiểm tra số điện thoại và kết nối mạng. Chờ theo thời gian hiển thị trước khi yêu cầu gửi lại mã. Nếu vẫn gặp khó khăn, liên hệ bộ phận hỗ trợ Panasonic.</p></details><details ><summary>Một tài khoản có thể dùng trên nhiều thiết bị không?</summary><p>Bạn có thể thử đăng nhập cùng tài khoản trên thiết bị cần sử dụng. Khả năng sử dụng đồng thời phụ thuộc phiên bản ứng dụng và chính sách hiện hành.</p></details><details ><summary>Cách liên kết sản phẩm với ứng dụng?</summary><p>Đăng nhập My Panasonic+, chọn đăng ký sản phẩm và nhập hoặc quét thông tin theo hướng dẫn. Kiểm tra model, số sê-ri và thông tin mua hàng trước khi hoàn tất.</p></details></div></div><section id="app" class="ew-download"><div class="ew-download-brand"><img src="assets/my-panasonic-icon.webp" alt=""><strong>My Panasonic+</strong><small>Smart Connected Life</small></div><div class="ew-download-copy"><h2>Một chạm <em>quản lý,</em><br>An tâm <em>tận hưởng</em></h2><p>Tải My Panasonic+ và đăng ký sản phẩm để tận hưởng trải nghiệm quản lý bảo hành thuận tiện hơn.</p></div><a class="ew-download-qr" href="https://mypanasonic.org/4iz60Pc?r=qr" target="_blank" rel="noopener" aria-label="Mở trang tải My Panasonic+"><img src="assets/my-panasonic-download-qr.png" alt="Quét mã QR để tải My Panasonic+" width="2000" height="2000" loading="lazy"></a><div class="ew-store"><a class="ew-store-badge" href="https://apps.apple.com/vn/search?term=My%20Panasonic%2B" target="_blank" rel="noopener" aria-label="Tìm My Panasonic+ trên App Store"><svg viewBox="0 0 24 28" fill="currentColor" aria-hidden="true"><path d="M16 5c1-1 2-3 2-5-2 0-4 1-5 3-1 1-2 3-1 4 1 0 3-1 4-2ZM20 15c0-3 2-5 3-5-2-3-4-4-6-4-2 0-4 2-5 2s-3-2-5-2c-4 0-7 4-7 8 0 5 4 13 7 13 2 0 3-1 5-1s3 1 5 1c3 0 6-5 7-8-2-1-4-2-4-4Z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="ew-store-badge" href="https://play.google.com/store/search?q=My%20Panasonic%2B&amp;c=apps" target="_blank" rel="noopener" aria-label="Tìm My Panasonic+ trên Google Play"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 1v26l13-13Z" fill="#3bccff"/><path d="m2 1 16 9-3 4Z" fill="#38d982"/><path d="m2 27 16-9-3-4Z" fill="#ff4e63"/><path d="m15 14 3-4 6 4-6 4Z" fill="#ffd44b"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></section></div></section></main><footer class="footer">
+</div></section>
+<section id="warranty-troubleshooting" class="ew-section ew-troubleshooting" aria-labelledby="warranty-troubleshooting-title">
+  <div class="page-width">
+    <h2 id="warranty-troubleshooting-title">Gặp lỗi khi kích <em>hoạt bảo hành</em>?</h2>
+    <p class="ew-lead">Chọn vấn đề bạn đang gặp để xem nguyên nhân và cách xử lý.</p>
+    <fieldset class="ew-issues">
+      <legend class="ew-issue-visually-hidden">Vấn đề khi kích hoạt bảo hành</legend>
+      <div class="ew-issue-card">
+        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-code" aria-labelledby="warranty-issue-code-title">
+        <label class="ew-issue-label" for="warranty-issue-code">
+          <span class="ew-issue-number" aria-hidden="true">1</span>
+          <span class="ew-issue-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8H5a3 3 0 0 0-3 3v6m36-9h5a3 3 0 0 1 3 3v6M10 40H5a3 3 0 0 1-3-3v-6m36 9h5a3 3 0 0 0 3-3v-6M9 17v14m7-14v14m8-14v14m8-14v14m7-14v14"/></svg>
+          </span>
+          <span class="ew-issue-title" id="warranty-issue-code-title">Sai Model Number / Serial Number</span>
+          <span class="ew-issue-description">Thông tin nhập chưa đúng định dạng hoặc chưa khớp với tem sản phẩm.</span>
+        </label>
+        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-code-title" data-resolution="Đối chiếu hai mã với tem trên sản phẩm. Nhập mã ở dòng Model No. vào ô Model Number và mã ở dòng Serial No. vào ô Serial Number. Kiểm tra những ký tự dễ nhầm như chữ O và số 0, rồi thử lại.">
+          Xem cách xử lý <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="ew-issue-card">
+        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-date" aria-labelledby="warranty-issue-date-title">
+        <label class="ew-issue-label" for="warranty-issue-date">
+          <span class="ew-issue-number" aria-hidden="true">2</span>
+          <span class="ew-issue-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 41H8a5 5 0 0 1-5-5V12a5 5 0 0 1 5-5h28a5 5 0 0 1 5 5v9M3 16h38M12 3v9M32 3v9"/><circle cx="36" cy="35" r="10"/><path d="M36 29v6l4 2"/></svg>
+          </span>
+          <span class="ew-issue-title" id="warranty-issue-date-title">Sai ngày mua hàng</span>
+          <span class="ew-issue-description">Ngày mua chưa chính xác hoặc không khớp với chứng từ mua hàng.</span>
+        </label>
+        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-date-title" data-resolution="Mở hóa đơn hoặc chứng từ mua hàng và chọn lại ngày mua trong ứng dụng theo đúng ngày ghi trên chứng từ. Kiểm tra ngày, tháng và năm trước khi gửi lại.">
+          Xem cách xử lý <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="ew-issue-card">
+        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-unsupported" aria-labelledby="warranty-issue-unsupported-title">
+        <label class="ew-issue-label" for="warranty-issue-unsupported">
+          <span class="ew-issue-number" aria-hidden="true">3</span>
+          <span class="ew-issue-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42 4 32V11L23 2l19 9v9M4 11l19 10 19-10M23 21v8m1 13 4-2"/><circle cx="37" cy="34" r="10"/><path d="m33 30 8 8m0-8-8 8"/></svg>
+          </span>
+          <span class="ew-issue-title" id="warranty-issue-unsupported-title">Sản phẩm chưa hỗ trợ KHBH điện tử</span>
+          <span class="ew-issue-description">Một số sản phẩm chưa áp dụng kích hoạt bảo hành điện tử trên ứng dụng.</span>
+        </label>
+        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-unsupported-title" data-resolution="Kiểm tra lại mã model trên tem sản phẩm. Nếu ứng dụng vẫn báo chưa hỗ trợ, giữ hóa đơn và hỏi nơi mua hàng hoặc bộ phận hỗ trợ Panasonic về cách bảo hành áp dụng cho model của bạn.">
+          Xem cách xử lý <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="ew-issue-card">
+        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-receipt" aria-labelledby="warranty-issue-receipt-title">
+        <label class="ew-issue-label" for="warranty-issue-receipt">
+          <span class="ew-issue-number" aria-hidden="true">4</span>
+          <span class="ew-issue-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 43H9a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h20l10 10v9M29 3v8a3 3 0 0 0 3 3h7M12 19h16m-16 8h11m-11 8h7"/><circle cx="36" cy="34" r="10"/><path d="M36 29v6m0 4h.01"/></svg>
+          </span>
+          <span class="ew-issue-title" id="warranty-issue-receipt-title">Chứng từ mua hàng không hợp lệ</span>
+          <span class="ew-issue-description">Hình ảnh hóa đơn mờ, thiếu thông tin hoặc chưa đúng yêu cầu xác minh.</span>
+        </label>
+        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-receipt-title" data-resolution="Chụp lại toàn bộ hóa đơn ở nơi đủ sáng. Kiểm tra ảnh có đọc được ngày mua, tên nơi bán và thông tin sản phẩm trước khi tải lại. Nếu chứng từ thiếu thông tin, liên hệ nơi mua để xin bản đầy đủ.">
+          Xem cách xử lý <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </fieldset>
+  </div>
+  <dialog class="ew-issue-dialog" aria-labelledby="warranty-issue-dialog-title">
+    <form method="dialog">
+      <button class="ew-issue-close" type="submit" aria-label="Đóng hướng dẫn" autofocus>×</button>
+    </form>
+    <h2 id="warranty-issue-dialog-title"></h2>
+    <h3>Nguyên nhân</h3>
+    <p class="ew-issue-cause"></p>
+    <h3>Cách xử lý</h3>
+    <p class="ew-issue-resolution"></p>
+  </dialog>
+</section>
+<section class="ew-section ew-faq-section"><div class="page-width"><div class="ew-faq"><h3><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="10" r="5"/><path d="M6 29v-3a10 10 0 0 1 20 0v3"/></svg> FAQ</h3><div class="ew-faq-grid"><details open><summary>Làm sao để đăng ký tài khoản My Panasonic+?</summary><p>Mở ứng dụng My Panasonic+, chọn đăng ký và làm theo hướng dẫn. Nhập số điện thoại, xác thực OTP và hoàn thiện thông tin tài khoản.</p></details><details ><summary>Không nhận được mã OTP phải làm sao?</summary><p>Kiểm tra số điện thoại và kết nối mạng. Chờ theo thời gian hiển thị trước khi yêu cầu gửi lại mã. Nếu vẫn gặp khó khăn, liên hệ bộ phận hỗ trợ Panasonic.</p></details><details ><summary>Một tài khoản có thể dùng trên nhiều thiết bị không?</summary><p>Bạn có thể thử đăng nhập cùng tài khoản trên thiết bị cần sử dụng. Khả năng sử dụng đồng thời phụ thuộc phiên bản ứng dụng và chính sách hiện hành.</p></details><details ><summary>Cách liên kết sản phẩm với ứng dụng?</summary><p>Đăng nhập My Panasonic+, chọn đăng ký sản phẩm và nhập hoặc quét thông tin theo hướng dẫn. Kiểm tra model, số sê-ri và thông tin mua hàng trước khi hoàn tất.</p></details></div></div><section id="app" class="ew-download"><div class="ew-download-brand"><img src="assets/my-panasonic-icon.webp" alt=""><strong>My Panasonic+</strong><small>Smart Connected Life</small></div><div class="ew-download-copy"><h2>Một chạm <em>quản lý,</em><br>An tâm <em>tận hưởng</em></h2><p>Tải My Panasonic+ và đăng ký sản phẩm để tận hưởng trải nghiệm quản lý bảo hành thuận tiện hơn.</p></div><a class="ew-download-qr" href="https://mypanasonic.org/4iz60Pc?r=qr" target="_blank" rel="noopener" aria-label="Mở trang tải My Panasonic+"><img src="assets/my-panasonic-download-qr.png" alt="Quét mã QR để tải My Panasonic+" width="2000" height="2000" loading="lazy"></a><div class="ew-store"><a class="ew-store-badge" href="https://apps.apple.com/vn/search?term=My%20Panasonic%2B" target="_blank" rel="noopener" aria-label="Tìm My Panasonic+ trên App Store"><svg viewBox="0 0 24 28" fill="currentColor" aria-hidden="true"><path d="M16 5c1-1 2-3 2-5-2 0-4 1-5 3-1 1-2 3-1 4 1 0 3-1 4-2ZM20 15c0-3 2-5 3-5-2-3-4-4-6-4-2 0-4 2-5 2s-3-2-5-2c-4 0-7 4-7 8 0 5 4 13 7 13 2 0 3-1 5-1s3 1 5 1c3 0 6-5 7-8-2-1-4-2-4-4Z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="ew-store-badge" href="https://play.google.com/store/search?q=My%20Panasonic%2B&amp;c=apps" target="_blank" rel="noopener" aria-label="Tìm My Panasonic+ trên Google Play"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 1v26l13-13Z" fill="#3bccff"/><path d="m2 1 16 9-3 4Z" fill="#38d982"/><path d="m2 27 16-9-3-4Z" fill="#ff4e63"/><path d="m15 14 3-4 6 4-6 4Z" fill="#ffd44b"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></section></div></section></main><footer class="footer">
       <div class="page-width">
         <div class="footer-breadcrumb">
           <span>Sản phẩm</span>
@@ -238,4 +462,25 @@
           </div>
         </div>
       </div>
-    </footer><button class="back-top" type="button" aria-label="Về đầu trang">↑</button><script>document.querySelector('.mobile-menu-toggle')?.addEventListener('click',function(){const open=this.getAttribute('aria-expanded')!=='true';this.setAttribute('aria-expanded',String(open));document.querySelector('.site-header').classList.toggle('nav-open',open)});document.querySelector('.back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));document.querySelectorAll('.mini-nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.site-header').classList.remove('nav-open');document.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded','false')}));</script><dialog class="ew-mockup-dialog" aria-label="Ảnh hướng dẫn My Panasonic+"><button class="ew-mockup-close" type="button" aria-label="Đóng ảnh hướng dẫn">×</button><img alt=""></dialog><script>(()=>{const dialog=document.querySelector('.ew-mockup-dialog');const image=dialog.querySelector('img');document.querySelectorAll('.ew-step-preview').forEach(button=>button.addEventListener('click',()=>{const source=button.querySelector('img');image.src=source.src;image.alt=source.alt;dialog.showModal()}));dialog.querySelector('.ew-mockup-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}})})();</script></body></html>
+    </footer><button class="back-top" type="button" aria-label="Về đầu trang">↑</button><script>document.querySelector('.mobile-menu-toggle')?.addEventListener('click',function(){const open=this.getAttribute('aria-expanded')!=='true';this.setAttribute('aria-expanded',String(open));document.querySelector('.site-header').classList.toggle('nav-open',open)});document.querySelector('.back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));document.querySelectorAll('.mini-nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.site-header').classList.remove('nav-open');document.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded','false')}));</script><dialog class="ew-mockup-dialog" aria-label="Ảnh hướng dẫn My Panasonic+"><button class="ew-mockup-close" type="button" aria-label="Đóng ảnh hướng dẫn">×</button><img alt=""></dialog><script>(()=>{const dialog=document.querySelector('.ew-mockup-dialog');const image=dialog.querySelector('img');document.querySelectorAll('.ew-step-preview').forEach(button=>button.addEventListener('click',()=>{const source=button.querySelector('img');image.src=source.src;image.alt=source.alt;dialog.showModal()}));dialog.querySelector('.ew-mockup-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}})})();</script>
+<script>
+{
+  const troubleshooting = document.querySelector('#warranty-troubleshooting');
+  const dialog = troubleshooting.querySelector('dialog');
+  const title = dialog.querySelector('h2');
+  const cause = dialog.querySelector('.ew-issue-cause');
+  const resolution = dialog.querySelector('.ew-issue-resolution');
+
+  troubleshooting.querySelectorAll('.ew-issue-action').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.ew-issue-card');
+      card.querySelector('input').checked = true;
+      title.textContent = card.querySelector('.ew-issue-title').textContent;
+      cause.textContent = card.querySelector('.ew-issue-description').textContent;
+      resolution.textContent = button.dataset.resolution;
+      dialog.showModal();
+    });
+  });
+}
+</script>
+</body></html>
