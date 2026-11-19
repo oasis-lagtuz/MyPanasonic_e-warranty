@@ -197,11 +197,11 @@
 .ew-issue-card:has(input:checked) .ew-issue-action,
 .ew-issue-action:hover{background:#0055d5;color:#fff}
 @media(hover:hover) and (pointer:fine){
-  .ew-issue-slot:hover .ew-issue-card{border-color:#648dff;box-shadow:0 5px 18px #004ea215}
+  .ew-issue-slot:hover .ew-issue-card{background-color:#fff;border-color:#648dff;box-shadow:0 5px 18px #004ea215}
   .ew-issue-slot:hover .ew-issue-number{background:linear-gradient(135deg,#3988ff,#0757eb);color:#fff}
 }
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .ew-issue-card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .ew-issue-card{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
   .ew-issue-slot:hover{z-index:1}
   .ew-issue-slot:hover .ew-issue-card{transform:translateY(-12px)}
 }
