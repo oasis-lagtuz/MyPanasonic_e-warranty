@@ -102,6 +102,7 @@
   padding:24px 0 0;
   border:0;
 }
+.ew-issue-slot{display:grid;min-width:0}
 .ew-issue-card{
   position:relative;
   display:flex;
@@ -195,9 +196,14 @@
 .ew-issue-card:has(input:checked) .ew-issue-number,
 .ew-issue-card:has(input:checked) .ew-issue-action,
 .ew-issue-action:hover{background:#0055d5;color:#fff}
+@media(hover:hover) and (pointer:fine){
+  .ew-issue-slot:hover .ew-issue-card{border-color:#648dff;box-shadow:0 5px 18px #004ea215}
+  .ew-issue-slot:hover .ew-issue-number{background:linear-gradient(135deg,#3988ff,#0757eb);color:#fff}
+}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .ew-issue-card{transition:transform .18s ease-out}
-  .ew-issue-card:hover{z-index:1;transform:scale(1.04)}
+  .ew-issue-card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .ew-issue-slot:hover{z-index:1}
+  .ew-issue-slot:hover .ew-issue-card{transform:translateY(-12px)}
 }
 .ew-issue-card:has(input:focus-visible),
 .ew-issue-action:focus-visible,
@@ -363,61 +369,69 @@
     <p class="ew-lead">Chọn vấn đề bạn đang gặp để xem nguyên nhân và cách xử lý.</p>
     <fieldset class="ew-issues">
       <legend class="ew-issue-visually-hidden">Vấn đề khi kích hoạt bảo hành</legend>
-      <div class="ew-issue-card">
-        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-code" aria-labelledby="warranty-issue-code-title">
-        <label class="ew-issue-label" for="warranty-issue-code">
-          <span class="ew-issue-number" aria-hidden="true">1</span>
-          <span class="ew-issue-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8H5a3 3 0 0 0-3 3v6m36-9h5a3 3 0 0 1 3 3v6M10 40H5a3 3 0 0 1-3-3v-6m36 9h5a3 3 0 0 0 3-3v-6M9 17v14m7-14v14m8-14v14m8-14v14m7-14v14"/></svg>
-          </span>
-          <span class="ew-issue-title" id="warranty-issue-code-title">Sai Model Number / Serial Number</span>
-          <span class="ew-issue-description">Thông tin nhập chưa đúng định dạng hoặc chưa khớp với tem sản phẩm.</span>
-        </label>
-        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-code-title" data-resolution="Đối chiếu hai mã với tem trên sản phẩm. Nhập mã ở dòng Model No. vào ô Model Number và mã ở dòng Serial No. vào ô Serial Number. Kiểm tra những ký tự dễ nhầm như chữ O và số 0, rồi thử lại.">
-          Xem cách xử lý <span aria-hidden="true">→</span>
-        </button>
+      <div class="ew-issue-slot">
+        <div class="ew-issue-card">
+          <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-code" aria-labelledby="warranty-issue-code-title">
+          <label class="ew-issue-label" for="warranty-issue-code">
+            <span class="ew-issue-number" aria-hidden="true">1</span>
+            <span class="ew-issue-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8H5a3 3 0 0 0-3 3v6m36-9h5a3 3 0 0 1 3 3v6M10 40H5a3 3 0 0 1-3-3v-6m36 9h5a3 3 0 0 0 3-3v-6M9 17v14m7-14v14m8-14v14m8-14v14m7-14v14"/></svg>
+            </span>
+            <span class="ew-issue-title" id="warranty-issue-code-title">Sai Model Number / Serial Number</span>
+            <span class="ew-issue-description">Thông tin nhập chưa đúng định dạng hoặc chưa khớp với tem sản phẩm.</span>
+          </label>
+          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-code-title" data-resolution="Đối chiếu hai mã với tem trên sản phẩm. Nhập mã ở dòng Model No. vào ô Model Number và mã ở dòng Serial No. vào ô Serial Number. Kiểm tra những ký tự dễ nhầm như chữ O và số 0, rồi thử lại.">
+            Xem cách xử lý <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
-      <div class="ew-issue-card">
-        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-date" aria-labelledby="warranty-issue-date-title">
-        <label class="ew-issue-label" for="warranty-issue-date">
-          <span class="ew-issue-number" aria-hidden="true">2</span>
-          <span class="ew-issue-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 41H8a5 5 0 0 1-5-5V12a5 5 0 0 1 5-5h28a5 5 0 0 1 5 5v9M3 16h38M12 3v9M32 3v9"/><circle cx="36" cy="35" r="10"/><path d="M36 29v6l4 2"/></svg>
-          </span>
-          <span class="ew-issue-title" id="warranty-issue-date-title">Sai ngày mua hàng</span>
-          <span class="ew-issue-description">Ngày mua chưa chính xác hoặc không khớp với chứng từ mua hàng.</span>
-        </label>
-        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-date-title" data-resolution="Mở hóa đơn hoặc chứng từ mua hàng và chọn lại ngày mua trong ứng dụng theo đúng ngày ghi trên chứng từ. Kiểm tra ngày, tháng và năm trước khi gửi lại.">
-          Xem cách xử lý <span aria-hidden="true">→</span>
-        </button>
+      <div class="ew-issue-slot">
+        <div class="ew-issue-card">
+          <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-date" aria-labelledby="warranty-issue-date-title">
+          <label class="ew-issue-label" for="warranty-issue-date">
+            <span class="ew-issue-number" aria-hidden="true">2</span>
+            <span class="ew-issue-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 41H8a5 5 0 0 1-5-5V12a5 5 0 0 1 5-5h28a5 5 0 0 1 5 5v9M3 16h38M12 3v9M32 3v9"/><circle cx="36" cy="35" r="10"/><path d="M36 29v6l4 2"/></svg>
+            </span>
+            <span class="ew-issue-title" id="warranty-issue-date-title">Sai ngày mua hàng</span>
+            <span class="ew-issue-description">Ngày mua chưa chính xác hoặc không khớp với chứng từ mua hàng.</span>
+          </label>
+          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-date-title" data-resolution="Mở hóa đơn hoặc chứng từ mua hàng và chọn lại ngày mua trong ứng dụng theo đúng ngày ghi trên chứng từ. Kiểm tra ngày, tháng và năm trước khi gửi lại.">
+            Xem cách xử lý <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
-      <div class="ew-issue-card">
-        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-unsupported" aria-labelledby="warranty-issue-unsupported-title">
-        <label class="ew-issue-label" for="warranty-issue-unsupported">
-          <span class="ew-issue-number" aria-hidden="true">3</span>
-          <span class="ew-issue-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42 4 32V11L23 2l19 9v9M4 11l19 10 19-10M23 21v8m1 13 4-2"/><circle cx="37" cy="34" r="10"/><path d="m33 30 8 8m0-8-8 8"/></svg>
-          </span>
-          <span class="ew-issue-title" id="warranty-issue-unsupported-title">Sản phẩm chưa hỗ trợ KHBH điện tử</span>
-          <span class="ew-issue-description">Một số sản phẩm chưa áp dụng kích hoạt bảo hành điện tử trên ứng dụng.</span>
-        </label>
-        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-unsupported-title" data-resolution="Kiểm tra lại mã model trên tem sản phẩm. Nếu ứng dụng vẫn báo chưa hỗ trợ, giữ hóa đơn và hỏi nơi mua hàng hoặc bộ phận hỗ trợ Panasonic về cách bảo hành áp dụng cho model của bạn.">
-          Xem cách xử lý <span aria-hidden="true">→</span>
-        </button>
+      <div class="ew-issue-slot">
+        <div class="ew-issue-card">
+          <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-unsupported" aria-labelledby="warranty-issue-unsupported-title">
+          <label class="ew-issue-label" for="warranty-issue-unsupported">
+            <span class="ew-issue-number" aria-hidden="true">3</span>
+            <span class="ew-issue-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42 4 32V11L23 2l19 9v9M4 11l19 10 19-10M23 21v8m1 13 4-2"/><circle cx="37" cy="34" r="10"/><path d="m33 30 8 8m0-8-8 8"/></svg>
+            </span>
+            <span class="ew-issue-title" id="warranty-issue-unsupported-title">Sản phẩm chưa hỗ trợ KHBH điện tử</span>
+            <span class="ew-issue-description">Một số sản phẩm chưa áp dụng kích hoạt bảo hành điện tử trên ứng dụng.</span>
+          </label>
+          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-unsupported-title" data-resolution="Kiểm tra lại mã model trên tem sản phẩm. Nếu ứng dụng vẫn báo chưa hỗ trợ, giữ hóa đơn và hỏi nơi mua hàng hoặc bộ phận hỗ trợ Panasonic về cách bảo hành áp dụng cho model của bạn.">
+            Xem cách xử lý <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
-      <div class="ew-issue-card">
-        <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-receipt" aria-labelledby="warranty-issue-receipt-title">
-        <label class="ew-issue-label" for="warranty-issue-receipt">
-          <span class="ew-issue-number" aria-hidden="true">4</span>
-          <span class="ew-issue-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 43H9a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h20l10 10v9M29 3v8a3 3 0 0 0 3 3h7M12 19h16m-16 8h11m-11 8h7"/><circle cx="36" cy="34" r="10"/><path d="M36 29v6m0 4h.01"/></svg>
-          </span>
-          <span class="ew-issue-title" id="warranty-issue-receipt-title">Chứng từ mua hàng không hợp lệ</span>
-          <span class="ew-issue-description">Hình ảnh hóa đơn mờ, thiếu thông tin hoặc chưa đúng yêu cầu xác minh.</span>
-        </label>
-        <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-receipt-title" data-resolution="Chụp lại toàn bộ hóa đơn ở nơi đủ sáng. Kiểm tra ảnh có đọc được ngày mua, tên nơi bán và thông tin sản phẩm trước khi tải lại. Nếu chứng từ thiếu thông tin, liên hệ nơi mua để xin bản đầy đủ.">
-          Xem cách xử lý <span aria-hidden="true">→</span>
-        </button>
+      <div class="ew-issue-slot">
+        <div class="ew-issue-card">
+          <input class="ew-issue-visually-hidden" type="radio" name="warranty-issue" id="warranty-issue-receipt" aria-labelledby="warranty-issue-receipt-title">
+          <label class="ew-issue-label" for="warranty-issue-receipt">
+            <span class="ew-issue-number" aria-hidden="true">4</span>
+            <span class="ew-issue-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 43H9a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h20l10 10v9M29 3v8a3 3 0 0 0 3 3h7M12 19h16m-16 8h11m-11 8h7"/><circle cx="36" cy="34" r="10"/><path d="M36 29v6m0 4h.01"/></svg>
+            </span>
+            <span class="ew-issue-title" id="warranty-issue-receipt-title">Chứng từ mua hàng không hợp lệ</span>
+            <span class="ew-issue-description">Hình ảnh hóa đơn mờ, thiếu thông tin hoặc chưa đúng yêu cầu xác minh.</span>
+          </label>
+          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-receipt-title" data-resolution="Chụp lại toàn bộ hóa đơn ở nơi đủ sáng. Kiểm tra ảnh có đọc được ngày mua, tên nơi bán và thông tin sản phẩm trước khi tải lại. Nếu chứng từ thiếu thông tin, liên hệ nơi mua để xin bản đầy đủ.">
+            Xem cách xử lý <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
     </fieldset>
   </div>
