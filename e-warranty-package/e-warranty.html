@@ -53,7 +53,7 @@
   box-shadow:0 0 0 1px #737983;
 }
 .ew-activation-phone img{display:block;width:100%;height:auto}
-.ew-activation-phone--wide img{width:130%;max-width:none;justify-self:center}
+.ew-activation-confirm-screen{position:relative;display:block;width:130%}
 .ew-activation-barcode{
   position:relative;
   display:block;
@@ -62,14 +62,16 @@
   margin:0 auto;
 }
 .ew-activation-barcode img{display:block;width:100%;height:auto}
-.ew-activation-barcode::after{
+.ew-activation-barcode::after,
+.ew-activation-confirm-screen::after{
   content:"";
   position:absolute;
-  inset:50.7% 45.5% 34.1% 11%;
   border:clamp(2px,.38vw,4px) solid #c81920;
   border-radius:5px;
   pointer-events:none;
 }
+.ew-activation-barcode::after{inset:50.7% 45.5% 34.1% 11%}
+.ew-activation-confirm-screen::after{inset:89.6% 12.5% 2.6%}
 .ew-activation-steps h3{margin:0 0 6px;color:#004b8e;font-size:20px}
 .ew-activation-steps p{max-width:34ch;margin:0 auto;color:#172b4b;font-size:15px;line-height:1.5;text-wrap:pretty}
 @media(max-width:760px){
@@ -408,7 +410,9 @@
     <li>
       <span class="ew-activation-number" aria-hidden="true">3</span>
       <div class="ew-activation-gallery">
-        <span class="ew-activation-phone ew-activation-phone--wide"><img src="assets/activation-confirm.png" alt="Màn hình xác nhận thông tin và nút Đăng ký sản phẩm" width="1024" height="1536" loading="lazy"></span>
+        <span class="ew-activation-phone">
+          <span class="ew-activation-confirm-screen"><img src="assets/activation-confirm.png" alt="Màn hình xác nhận thông tin, nút Đăng ký sản phẩm được viền đỏ" width="1024" height="1536" loading="lazy"></span>
+        </span>
         <span class="ew-activation-phone"><img src="assets/activation-complete.jpg" alt="Thông tin sản phẩm đã đăng ký thành công" width="1284" height="2778" loading="lazy"></span>
       </div>
       <h3>Bước 3</h3>
