@@ -9,7 +9,73 @@
 .ew-white span[aria-hidden]{font-size:24px;line-height:1}
 @media(max-width:760px){.ew-white{font-size:14px;padding:12px 18px}.ew-white span:first-child{min-width:0}}
 .ew-videos{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:30px auto 0;max-width:1000px}.ew-video{border-radius:18px;overflow:hidden;background:linear-gradient(140deg,#f6f6f6,#d5d8db);border:1px solid #e4e7ed}.ew-video-player{display:block;width:100%;aspect-ratio:16/9;border:0;background:#101010}.ew-video-youtube{align-self:start}.ew-video-youtube-link{font-weight:500}.ew-video-youtube-link:hover{color:#0054bc;background:#e5edfa}.ew-video-pending{align-self:start}.ew-video-poster{position:relative;aspect-ratio:16/9;background:#161616}.ew-video-poster>img{display:block;width:100%;height:100%;object-fit:cover}.ew-video-overlay{position:absolute;inset:0 0 auto;display:flex;align-items:flex-start;gap:12px;padding:12px 28px 30px;background:linear-gradient(#000c,#0006 65%,transparent);color:white;text-align:left}.ew-video-overlay h3{font-family:Arial,sans-serif;font-size:18px;font-weight:700;line-height:22px;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 3px #0009}.ew-video-channel{display:block;font-family:Arial,sans-serif;font-size:12px;font-weight:400;line-height:16px;color:#eee}.ew-video-channel-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:#111;color:#fff;font-size:6px;font-weight:700}.ew-video-overlay>div{min-width:0;flex:1}
-.ew-video-title{background:linear-gradient(#404347,#6b6f74);color:white;font-size:14px;padding:14px 20px}.ew-video-art{display:flex;align-items:center;justify-content:center;gap:20px;padding:25px 16px 0;height:200px;overflow:hidden}.ew-video-art>img{width:60px;border-radius:14px}.ew-video-art small{display:block;color:#6f7782;margin-bottom:8px}.ew-video-art strong{font-size:18px;line-height:1.6;color:#152d51}.ew-mini-phone{width:110px;height:195px;border:5px solid #34373e;border-radius:20px;background:white;padding:12px 8px;transform:rotate(-4deg);box-shadow:5px 10px 10px #0002}.ew-mini-phone span{display:block;width:35px;height:6px;background:#333;border-radius:6px;margin:-6px auto 20px}.ew-mini-phone b{font-size:9px;color:#0056a7}.ew-mini-phone i{display:block;height:20px;border:1px solid #e2e8f0;border-radius:4px;margin-top:12px}.ew-video-note{display:block;text-align:center;color:#667085;background:#eef0f3;padding:10px;font-size:12px;font-weight:500;line-height:1.5}.ew-activation,.ew-connect-heading{margin-top:70px}.ew-connect{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1100px;margin:0 auto;text-align:center}.ew-connect article{display:flex;flex-direction:column;min-width:0;padding:28px 24px;border:1px solid #ccc;border-radius:28px;background:#f5f5f5}.ew-connect article>p{margin:0;color:#667085}.ew-connect article>details{margin-top:auto;padding-top:18px}.ew-connect-product{display:block;width:160px;max-width:100%;height:240px;object-fit:contain;margin:18px auto 24px;border-radius:12px}.ew-connect-air-conditioner{width:100%;max-width:300px}.ew-connect h3{font-size:18px;line-height:1.45;max-width:300px;margin:0 auto 12px;text-wrap:balance}.ew-connect summary.ew-button{display:block;width:100%;max-width:240px;margin:0 auto;background:#505050;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;transition:background-color .15s ease}.ew-connect summary.ew-button:hover{background:#383838}.ew-connect details p{background:#f2f7fd;padding:18px;border-radius:12px;text-align:left}
+.ew-video-title{background:linear-gradient(#404347,#6b6f74);color:white;font-size:14px;padding:14px 20px}.ew-video-art{display:flex;align-items:center;justify-content:center;gap:20px;padding:25px 16px 0;height:200px;overflow:hidden}.ew-video-art>img{width:60px;border-radius:14px}.ew-video-art small{display:block;color:#6f7782;margin-bottom:8px}.ew-video-art strong{font-size:18px;line-height:1.6;color:#152d51}.ew-mini-phone{width:110px;height:195px;border:5px solid #34373e;border-radius:20px;background:white;padding:12px 8px;transform:rotate(-4deg);box-shadow:5px 10px 10px #0002}.ew-mini-phone span{display:block;width:35px;height:6px;background:#333;border-radius:6px;margin:-6px auto 20px}.ew-mini-phone b{font-size:9px;color:#0056a7}.ew-mini-phone i{display:block;height:20px;border:1px solid #e2e8f0;border-radius:4px;margin-top:12px}.ew-video-note{display:block;text-align:center;color:#667085;background:#eef0f3;padding:10px;font-size:12px;font-weight:500;line-height:1.5}.ew-activation,.ew-connect-heading{margin-top:70px}
+.ew-activation-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  margin:0 auto;
+  padding:0;
+  list-style:none;
+  text-align:center;
+}
+.ew-activation-steps li{min-width:0}
+.ew-activation-number{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:#004b8e;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+}
+.ew-activation-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:center;
+  gap:12px;
+  max-width:340px;
+  margin:0 auto 16px;
+}
+.ew-activation-phone{
+  display:grid;
+  place-items:center;
+  width:min(100%,144px);
+  aspect-ratio:1340 / 2834;
+  margin:0 auto;
+  overflow:hidden;
+  border:clamp(3px,.45vw,6px) solid #202329;
+  border-radius:14% / 7%;
+  background:#f5f5f5;
+  box-shadow:0 0 0 1px #737983;
+}
+.ew-activation-phone img{display:block;width:100%;height:auto}
+.ew-activation-phone--wide img{width:130%;max-width:none;justify-self:center}
+.ew-activation-barcode{
+  position:relative;
+  display:block;
+  width:100%;
+  max-width:166px;
+  margin:0 auto;
+}
+.ew-activation-barcode img{display:block;width:100%;height:auto}
+.ew-activation-barcode::after{
+  content:"";
+  position:absolute;
+  inset:50.7% 45.5% 34.1% 11%;
+  border:clamp(2px,.38vw,4px) solid #c81920;
+  border-radius:5px;
+  pointer-events:none;
+}
+.ew-activation-steps h3{margin:0 0 6px;color:#004b8e;font-size:20px}
+.ew-activation-steps p{max-width:34ch;margin:0 auto;color:#172b4b;font-size:15px;line-height:1.5;text-wrap:pretty}
+@media(max-width:760px){
+  .ew-activation-steps{grid-template-columns:1fr;gap:32px}
+}
+.ew-connect{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1100px;margin:0 auto;text-align:center}.ew-connect article{display:flex;flex-direction:column;min-width:0;padding:28px 24px;border:1px solid #ccc;border-radius:28px;background:#f5f5f5}.ew-connect article>p{margin:0;color:#667085}.ew-connect article>details{margin-top:auto;padding-top:18px}.ew-connect-product{display:block;width:160px;max-width:100%;height:240px;object-fit:contain;margin:18px auto 24px;border-radius:12px}.ew-connect-air-conditioner{width:100%;max-width:300px}.ew-connect h3{font-size:18px;line-height:1.45;max-width:300px;margin:0 auto 12px;text-wrap:balance}.ew-connect summary.ew-button{display:block;width:100%;max-width:240px;margin:0 auto;background:#505050;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;transition:background-color .15s ease}.ew-connect summary.ew-button:hover{background:#383838}.ew-connect details p{background:#f2f7fd;padding:18px;border-radius:12px;text-align:left}
 @media(max-width:1000px){
   .ew-connect{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -320,6 +386,35 @@
 <section id="activate-warranty" class="ew-activation" aria-labelledby="activate-warranty-title">
   <h2 id="activate-warranty-title">Hướng dẫn kích hoạt bảo hành điện tử</h2>
   <p class="ew-lead">Kích hoạt bảo hành điện tử để dễ dàng theo dõi thời hạn bảo hành, nhận thông báo trước khi hết hạn và chủ động sử dụng các dịch vụ chăm sóc sản phẩm chính hãng Panasonic.</p>
+  <ol class="ew-activation-steps" role="list">
+    <li>
+      <span class="ew-activation-number" aria-hidden="true">1</span>
+      <div class="ew-activation-gallery">
+        <span class="ew-activation-phone"><img src="assets/activation-home.png" alt="Trang chủ ứng dụng My Panasonic+ có mục Đăng ký sản phẩm" width="1284" height="2778" loading="lazy"></span>
+        <span class="ew-activation-phone"><img src="assets/activation-register.jpg" alt="Màn hình Đăng ký sản phẩm trong My Panasonic+" width="1284" height="2778" loading="lazy"></span>
+      </div>
+      <h3>Bước 1</h3>
+      <p>Vào tính năng <strong>Đăng ký sản phẩm</strong></p>
+    </li>
+    <li>
+      <span class="ew-activation-number" aria-hidden="true">2</span>
+      <div class="ew-activation-gallery">
+        <span class="ew-activation-phone"><img src="assets/activation-product.jpg" alt="Màn hình nhập mã model và số sê-ri của sản phẩm" width="1284" height="2778" loading="lazy"></span>
+        <span class="ew-activation-barcode"><img src="assets/activation-barcode.png" alt="Hộp máy sấy Panasonic với hai dòng mã vạch Model No. và Serial No. được viền đỏ" width="532" height="864" loading="lazy"></span>
+      </div>
+      <h3>Bước 2</h3>
+      <p>Nhập thông tin thiết bị có trên hộp sản phẩm hoặc Phiếu Bảo Hành (Vị trí sẽ tuỳ thuộc vào product cat)</p>
+    </li>
+    <li>
+      <span class="ew-activation-number" aria-hidden="true">3</span>
+      <div class="ew-activation-gallery">
+        <span class="ew-activation-phone ew-activation-phone--wide"><img src="assets/activation-confirm.png" alt="Màn hình xác nhận thông tin và nút Đăng ký sản phẩm" width="1024" height="1536" loading="lazy"></span>
+        <span class="ew-activation-phone"><img src="assets/activation-complete.jpg" alt="Thông tin sản phẩm đã đăng ký thành công" width="1284" height="2778" loading="lazy"></span>
+      </div>
+      <h3>Bước 3</h3>
+      <p>Điền thông tin chủ sở hữu, thông tin sản phẩm và bấm đăng ký sản phẩm</p>
+    </li>
+  </ol>
 </section>
 <div class="ew-connect-heading">
   <h2>Hướng dẫn tìm <em>Model Number &amp; Serial Number</em></h2>
