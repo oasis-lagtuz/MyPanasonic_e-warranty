@@ -97,7 +97,38 @@
 }
 .ew-activation-barcode::after{inset:50.7% 45.5% 34.1% 11%}
 .ew-activation-confirm-screen::after{inset:89.6% 12.5% 2.6%}
-.ew-activation-steps h3{margin:0 0 6px;color:#004b8e;font-size:20px}
+.ew-activation-steps h3,.ew-activation-states h3{margin:0 0 6px;color:#004b8e;font-size:20px}
+.ew-activation-review{margin-top:48px;scroll-margin-top:155px;text-align:center}
+.ew-activation-states{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:32px;
+  max-width:740px;
+  margin:0 auto;
+}
+.ew-activation-states h3{margin-bottom:16px;text-wrap:balance}
+.ew-activation-states .ew-activation-gallery{margin-bottom:0}
+.ew-activation-status-phone{
+  position:relative;
+  display:block;
+  width:min(100%,144px);
+  aspect-ratio:700 / 1440;
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:14% / 7%;
+}
+.ew-activation-status-phone img{
+  position:absolute;
+  top:-3.33%;
+  left:-23.15%;
+  display:block;
+  width:146.3%;
+  max-width:none;
+  height:auto;
+}
+@media(max-width:640px){
+  .ew-activation-states{grid-template-columns:1fr}
+}
 .ew-activation-steps p{max-width:34ch;margin:0 auto;color:#172b4b;font-size:15px;line-height:1.5;text-wrap:pretty}
 @media(max-width:760px){
   .ew-activation-steps{grid-template-columns:1fr;gap:32px}
@@ -453,6 +484,25 @@
       <p>Điền thông tin chủ sở hữu, thông tin sản phẩm và bấm đăng ký sản phẩm</p>
     </li>
   </ol>
+  <div class="ew-activation-review" id="activation-review">
+    <p class="ew-lead">Sau khi đăng ký, cần 1-2 ngày để yêu cầu của bạn được phê duyệt</p>
+    <div class="ew-activation-states">
+      <article>
+        <h3>Yêu cầu đang chờ phê duyệt</h3>
+        <div class="ew-activation-gallery">
+          <span class="ew-activation-status-phone"><img src="assets/activation-pending-notice.png" alt="Thông báo đăng ký bảo hành đang được xét duyệt" width="1024" height="1536" loading="lazy"></span>
+          <span class="ew-activation-status-phone"><img src="assets/activation-pending-status.png" alt="Thông tin sản phẩm có trạng thái bảo hành Pending" width="1024" height="1536" loading="lazy"></span>
+        </div>
+      </article>
+      <article>
+        <h3>Yêu cầu đã được phê duyệt</h3>
+        <div class="ew-activation-gallery">
+          <span class="ew-activation-status-phone"><img src="assets/activation-approved-notice.png" alt="Thông báo sản phẩm đã được đăng ký thành công" width="1024" height="1536" loading="lazy"></span>
+          <span class="ew-activation-status-phone"><img src="assets/activation-approved-status.png" alt="Sản phẩm đã được duyệt trong danh sách bảo hành đã đăng ký" width="1024" height="1536" loading="lazy"></span>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 <div class="ew-connect-heading">
   <h2>Hướng dẫn tìm <em>Model Number &amp; Serial Number</em></h2>
