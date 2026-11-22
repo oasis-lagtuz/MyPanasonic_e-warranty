@@ -401,22 +401,10 @@
 .ew-issue-card:has(input:focus-visible),
 .ew-issue-action:focus-visible,
 .ew-issue-close:focus-visible{outline:3px solid #1685ef;outline-offset:3px}
-.ew-issue-dialog{
-  position:fixed;
-  width:min(540px,calc(100% - 32px));
-  max-height:calc(100% - 32px);
-  padding:48px 24px 24px;
-  border:0;
-  border-radius:18px;
-  background:#fff;
-  color:#172b4b;
-  overflow:auto;
-  box-shadow:0 20px 80px #0005;
-}
-.ew-issue-dialog::backdrop{background:#061b38bb}
-.ew-troubleshooting .ew-issue-dialog h2{margin:0 0 18px;font-size:24px;text-align:left}
+.ew-issue-dialog{--guide-dialog-width:540px}
+.ew-issue-dialog:has(.ew-issue-illustration:not([hidden])){--guide-dialog-width:900px}
+.ew-troubleshooting .ew-issue-dialog h2{margin-bottom:18px;text-align:left}
 .ew-issue-dialog h3{margin:16px 0 4px;font-size:16px}
-.ew-issue-dialog p{margin:0;line-height:1.65}
 .ew-issue-close{
   position:absolute;
   top:12px;
@@ -442,7 +430,7 @@
 
 .ew-guide-dialog{
   position:fixed;
-  width:min(900px,calc(100% - 24px));
+  width:min(var(--guide-dialog-width,900px),calc(100% - 24px));
   max-height:calc(100% - 24px);
   padding:32px 24px 24px;
   border:1px solid #cfe0ff;
@@ -689,7 +677,7 @@
             <span class="ew-issue-title" id="warranty-issue-code-title">Sai Model Number / Serial Number</span>
             <span class="ew-issue-description">Thông tin nhập chưa đúng định dạng hoặc chưa khớp với tem sản phẩm.</span>
           </label>
-          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-code-title" data-resolution="Đối chiếu hai mã với tem trên sản phẩm. Nhập mã ở dòng Model No. vào ô Model Number và mã ở dòng Serial No. vào ô Serial Number. Kiểm tra những ký tự dễ nhầm như chữ O và số 0, rồi thử lại.">
+          <button class="ew-issue-action" type="button" aria-haspopup="dialog" aria-describedby="warranty-issue-code-title" data-illustrated data-resolution="Đối chiếu hai mã với tem trên sản phẩm. Nhập mã ở dòng Model No. vào ô Model Number và mã ở dòng Serial No. vào ô Serial Number. Kiểm tra những ký tự dễ nhầm như chữ O và số 0, rồi thử lại.">
             Xem cách xử lý <span aria-hidden="true">→</span>
           </button>
         </div>
@@ -744,11 +732,17 @@
       </div>
     </fieldset>
   </div>
-  <dialog class="ew-issue-dialog" aria-labelledby="warranty-issue-dialog-title">
+  <dialog class="ew-guide-dialog ew-issue-dialog" aria-labelledby="warranty-issue-dialog-title">
     <form method="dialog">
       <button class="ew-issue-close" type="submit" aria-label="Đóng hướng dẫn" autofocus>×</button>
     </form>
     <h2 id="warranty-issue-dialog-title"></h2>
+    <div class="ew-issue-illustration" hidden>
+      <p class="ew-guide-scroll-note">Vuốt ngang để xem toàn bộ hình.</p>
+      <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn xử lý lỗi Model Number hoặc Serial Number">
+        <div class="ew-guide-image"><img src="assets/popup-khonghople.png" alt="Vị trí tem Model Number, Serial Number và cách kiểm tra thông tin khi đăng ký bảo hành" width="1920" height="1080" loading="lazy"></div>
+      </div>
+    </div>
     <h3>Nguyên nhân</h3>
     <p class="ew-issue-cause"></p>
     <h3>Cách xử lý</h3>
@@ -795,6 +789,8 @@
   const title = dialog.querySelector('h2');
   const cause = dialog.querySelector('.ew-issue-cause');
   const resolution = dialog.querySelector('.ew-issue-resolution');
+  const illustration = dialog.querySelector('.ew-issue-illustration');
+  const imageView = illustration.querySelector('.ew-guide-image-view');
 
   troubleshooting.querySelectorAll('.ew-issue-action').forEach(button => {
     button.addEventListener('click', () => {
@@ -803,7 +799,10 @@
       title.textContent = card.querySelector('.ew-issue-title').textContent;
       cause.textContent = card.querySelector('.ew-issue-description').textContent;
       resolution.textContent = button.dataset.resolution;
+      illustration.hidden = !button.hasAttribute('data-illustrated');
       dialog.showModal();
+      dialog.scrollTop = 0;
+      if (!illustration.hidden) imageView.scrollLeft = 0;
     });
   });
 }
