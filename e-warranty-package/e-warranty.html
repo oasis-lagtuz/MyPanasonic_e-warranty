@@ -202,7 +202,7 @@
 @media(max-width:760px){
   .ew-activation-steps{grid-template-columns:1fr;gap:32px}
 }
-.ew-connect{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1100px;margin:0 auto;text-align:center}.ew-connect article{display:flex;flex-direction:column;min-width:0;padding:28px 24px;border:1px solid #ccc;border-radius:28px;background:#f5f5f5}.ew-connect article>p{margin:0;color:#667085}.ew-connect article>details{margin-top:auto;padding-top:18px}.ew-connect-product{display:block;width:160px;max-width:100%;height:240px;object-fit:contain;margin:18px auto 24px;border-radius:12px}.ew-connect-air-conditioner{width:100%;max-width:300px}.ew-connect h3{font-size:18px;line-height:1.45;max-width:300px;margin:0 auto 12px;text-wrap:balance}.ew-connect summary.ew-button{display:block;width:100%;max-width:240px;margin:0 auto;background:#505050;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;transition:background-color .15s ease}.ew-connect summary.ew-button:hover{background:#383838}.ew-connect details p{background:#f2f7fd;padding:18px;border-radius:12px;text-align:left}
+.ew-connect{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1100px;margin:0 auto;text-align:center}.ew-connect article{display:flex;flex-direction:column;min-width:0;padding:28px 24px;border:1px solid #ccc;border-radius:28px;background:#f5f5f5}.ew-connect article>p{margin:0 0 18px;color:#667085}.ew-connect-product{display:block;width:160px;max-width:100%;height:240px;object-fit:contain;margin:18px auto 24px;border-radius:12px}.ew-connect-air-conditioner{width:100%;max-width:300px}.ew-connect h3{font-size:18px;line-height:1.45;max-width:300px;margin:0 auto 12px;text-wrap:balance}.ew-connect button.ew-button{display:block;width:100%;max-width:240px;margin:auto auto 0;background:#505050;color:#fff;font-size:14px;font-weight:600;padding:12px 22px;transition:background-color .15s ease}.ew-connect button.ew-button:hover{background:#383838}
 @media(max-width:1000px){
   .ew-connect{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -439,6 +439,66 @@
   .ew-issues{grid-template-columns:1fr}
   .ew-troubleshooting .ew-lead{margin-bottom:30px}
 }
+
+.ew-guide-dialog{
+  position:fixed;
+  width:min(900px,calc(100% - 24px));
+  max-height:calc(100% - 24px);
+  padding:32px 24px 24px;
+  border:1px solid #cfe0ff;
+  border-radius:18px;
+  background:#fff;
+  color:#172b4b;
+  overflow:auto;
+  box-shadow:0 20px 80px #0005;
+}
+.ew-guide-dialog::backdrop{background:#061b38bb}
+.ew-guide-dialog h2{
+  margin:0 38px 10px 0;
+  color:#101f43;
+  font-size:clamp(20px,3vw,27px);
+  line-height:1.35;
+}
+.ew-guide-dialog p{margin:0 0 16px;line-height:1.6;color:#566378}
+.ew-guide-dialog .ew-guide-scroll-note{display:none}
+.ew-guide-tabs{display:flex;gap:4px;margin:16px 0 10px}
+.ew-guide-tab{
+  flex:0 1 170px;
+  padding:10px 12px;
+  border:0;
+  border-radius:9px;
+  background:#edf3fc;
+  color:#172b4b;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+.ew-guide-tab[aria-selected="true"]{background:linear-gradient(135deg,#3988ff,#0757eb);color:#fff}
+.ew-guide-tab:focus-visible,
+.ew-guide-image-view:focus-visible{outline:3px solid #1685ef;outline-offset:3px}
+.ew-guide-image-view{
+  max-width:100%;
+  overflow:auto;
+  border:1px solid #b9d6ff;
+  border-radius:10px;
+  background:#fff;
+}
+.ew-guide-image{position:relative;min-width:540px;aspect-ratio:1080 / 740;overflow:hidden}
+.ew-guide-image img{
+  position:absolute;
+  top:-33.7838%;
+  left:-38.8889%;
+  display:block;
+  width:177.7778%;
+  max-width:none;
+  height:auto;
+}
+.ew-guide-image--ac{aspect-ratio:1080 / 610}
+.ew-guide-image--ac img{top:-62.2951%}
+@media(max-width:600px){
+  .ew-guide-dialog{padding:34px 14px 16px}
+  .ew-guide-dialog .ew-guide-scroll-note{display:block;margin:0 0 8px;font-size:13px}
+}
 </style></head><body><header class="site-header">
       <div class="topline">
         <span>Panasonic Vietnam</span>
@@ -590,37 +650,25 @@
     <h3>Máy giặt</h3>
     <img class="ew-connect-product" src="assets/connected-washing-machine.png" alt="Máy giặt Panasonic NA-24VDW1 màu đen, cửa trước" width="5427" height="7680" loading="lazy">
     <p>Tìm Model Number và Serial Number trên tem máy, vỏ hộp hoặc phiếu bảo hành.</p>
-    <details>
-      <summary class="ew-button">Xem hướng dẫn</summary>
-      <p>Kiểm tra tem thông số quanh khung cửa hoặc ở mặt sau máy, tùy model. Trên tem, tìm Model No. (mã model) và Serial No. (số sê-ri).</p>
-    </details>
+    <button class="ew-button" type="button" aria-haspopup="dialog" aria-controls="model-guide-dialog" data-model-guide="model-guide-washer">Xem hướng dẫn</button>
   </article>
   <article>
     <h3>Tủ lạnh</h3>
     <img class="ew-connect-product" src="assets/connected-refrigerator.png" alt="Tủ lạnh Panasonic màu đen, bốn cửa" width="1024" height="1536" loading="lazy">
     <p>Xem vị trí tem bên trong tủ lạnh và cách nhận biết mã Model, Serial.</p>
-    <details>
-      <summary class="ew-button">Xem hướng dẫn</summary>
-      <p>Kiểm tra tem thông số trên thành trong ngăn mát hoặc quanh khung cửa, tùy model. Trên tem, tìm Model No. (mã model) và Serial No. (số sê-ri).</p>
-    </details>
+    <button class="ew-button" type="button" aria-haspopup="dialog" aria-controls="model-guide-dialog" data-model-guide="model-guide-fridge">Xem hướng dẫn</button>
   </article>
   <article>
     <h3>Máy lạnh</h3>
     <img class="ew-connect-product ew-connect-air-conditioner" src="assets/connected-air-conditioner.png" alt="Máy lạnh Panasonic màu trắng, cánh gió đang mở" width="9600" height="5398" loading="lazy">
     <p>Xác định vị trí tem thông số và mã Model, Serial cần dùng trên dàn lạnh hoặc dàn nóng.</p>
-    <details>
-      <summary class="ew-button">Xem hướng dẫn</summary>
-      <p>Kiểm tra tem thông số trên vỏ dàn lạnh hoặc dàn nóng. Đọc Model No. (mã model) và Serial No. (số sê-ri) trên tem của đúng dàn bạn cần tra cứu.</p>
-    </details>
+    <button class="ew-button" type="button" aria-haspopup="dialog" aria-controls="model-guide-dialog" data-model-guide="model-guide-ac">Xem hướng dẫn</button>
   </article>
   <article>
     <h3>Đồ gia dụng nhỏ</h3>
     <img class="ew-connect-product" src="assets/panasonic-hair-dryer.png" alt="Máy sấy tóc Panasonic" width="624" height="624" loading="lazy">
     <p>Tìm vị trí và cách nhận biết mã Model, Serial của từng loại đồ gia dụng Panasonic.</p>
-    <details>
-      <summary class="ew-button">Xem hướng dẫn</summary>
-      <p>Với máy sấy tóc, kiểm tra nhãn trên thân hoặc tay cầm. Tìm Model No. (mã model) và Serial No. (số sê-ri) nếu có. Với thiết bị khác, xem hướng dẫn sử dụng của sản phẩm để xác định vị trí tem.</p>
-    </details>
+    <button class="ew-button" type="button" aria-haspopup="dialog" aria-controls="model-guide-dialog" data-model-guide="model-guide-small">Xem hướng dẫn</button>
   </article>
 </div>
 </div></section>
@@ -756,6 +804,94 @@
       cause.textContent = card.querySelector('.ew-issue-description').textContent;
       resolution.textContent = button.dataset.resolution;
       dialog.showModal();
+    });
+  });
+}
+</script>
+
+<dialog id="model-guide-dialog" class="ew-guide-dialog">
+  <form method="dialog">
+    <button class="ew-issue-close" type="submit" aria-label="Đóng hướng dẫn" autofocus>×</button>
+  </form>
+  <article id="model-guide-washer" hidden>
+    <h2 id="model-guide-washer-title">Hướng dẫn tìm Model/Serial để kích hoạt bảo hành cho máy giặt</h2>
+    <p class="ew-guide-scroll-note">Vuốt ngang để xem toàn bộ hình.</p>
+    <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn cho máy giặt">
+      <div class="ew-guide-image"><img src="assets/model-guide-washer.png" alt="Vị trí tem Model Number, Serial Number trên máy giặt, thùng và phiếu bảo hành" width="1920" height="1080" loading="lazy"></div>
+    </div>
+  </article>
+  <article id="model-guide-fridge" hidden>
+    <h2 id="model-guide-fridge-title">Hướng dẫn tìm Model/Serial để kích hoạt bảo hành cho tủ lạnh</h2>
+    <p class="ew-guide-scroll-note">Vuốt ngang để xem toàn bộ hình.</p>
+    <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn cho tủ lạnh">
+      <div class="ew-guide-image"><img src="assets/model-guide-fridge.png" alt="Tem Model Number, Serial Number, mã QR trong ngăn mát và phiếu bảo hành tủ lạnh" width="1920" height="1080" loading="lazy"></div>
+    </div>
+  </article>
+  <article id="model-guide-ac" hidden>
+    <h2 id="model-guide-ac-title">Hướng dẫn tìm Model/Serial để kích hoạt bảo hành cho máy lạnh</h2>
+    <p>Vui lòng xác định đúng dàn lạnh (CS) hoặc dàn nóng (CU) trước khi nhập thông tin đăng ký bảo hành.</p>
+    <div class="ew-guide-tabs" role="tablist" aria-label="Chọn dàn máy lạnh">
+      <button id="model-guide-cs-tab" class="ew-guide-tab" type="button" role="tab" aria-controls="model-guide-cs" aria-selected="true">Dàn lạnh (CS)</button>
+      <button id="model-guide-cu-tab" class="ew-guide-tab" type="button" role="tab" aria-controls="model-guide-cu" aria-selected="false" tabindex="-1">Dàn nóng (CU)</button>
+    </div>
+    <p class="ew-guide-scroll-note">Vuốt ngang để xem toàn bộ hình.</p>
+    <div id="model-guide-cs" role="tabpanel" aria-labelledby="model-guide-cs-tab">
+      <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn cho dàn lạnh">
+        <div class="ew-guide-image ew-guide-image--ac"><img src="assets/popup-danlanh.png" alt="Dàn lạnh, vị trí tem Model Number và Serial Number, cùng ví dụ trên phiếu bảo hành" width="1920" height="1080" loading="lazy"></div>
+      </div>
+    </div>
+    <div id="model-guide-cu" role="tabpanel" aria-labelledby="model-guide-cu-tab" hidden>
+      <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn cho dàn nóng">
+        <div class="ew-guide-image ew-guide-image--ac"><img src="assets/popup-dannong.png" alt="Dàn nóng, vị trí tem Model Number và Serial Number, cùng ví dụ trên phiếu bảo hành" width="1920" height="1080" loading="lazy"></div>
+      </div>
+    </div>
+  </article>
+  <article id="model-guide-small" hidden>
+    <h2 id="model-guide-small-title">Hướng dẫn tìm Model/Serial cho đồ gia dụng nhỏ</h2>
+    <p>Với máy sấy tóc, kiểm tra nhãn trên thân hoặc tay cầm. Tìm Model No. (mã model) và Serial No. (số sê-ri) nếu có. Với thiết bị khác, xem hướng dẫn sử dụng của sản phẩm để xác định vị trí tem.</p>
+  </article>
+</dialog>
+
+<script>
+{
+  const guideDialog = document.getElementById('model-guide-dialog');
+  const guides = guideDialog.querySelectorAll(':scope > article');
+  const tabs = [...guideDialog.querySelectorAll('[role="tab"]')];
+
+  function selectGuideTab(activeTab) {
+    tabs.forEach(tab => {
+      const selected = tab === activeTab;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectGuideTab(tab));
+    tab.addEventListener('keydown', event => {
+      let nextIndex;
+      switch (event.key) {
+        case 'ArrowRight': nextIndex = (index + 1) % tabs.length; break;
+        case 'ArrowLeft': nextIndex = (index + tabs.length - 1) % tabs.length; break;
+        case 'Home': nextIndex = 0; break;
+        case 'End': nextIndex = tabs.length - 1; break;
+        default: return;
+      }
+      event.preventDefault();
+      selectGuideTab(tabs[nextIndex]);
+      tabs[nextIndex].focus();
+    });
+  });
+
+  document.querySelectorAll('#connect [data-model-guide]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const guide = document.getElementById(trigger.dataset.modelGuide);
+      guides.forEach(panel => { panel.hidden = panel !== guide; });
+      guideDialog.setAttribute('aria-labelledby', guide.querySelector('h2').id);
+      selectGuideTab(tabs[0]);
+      guideDialog.showModal();
+      guideDialog.scrollTop = 0;
     });
   });
 }
