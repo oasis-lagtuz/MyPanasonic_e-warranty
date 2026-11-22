@@ -485,6 +485,11 @@
 }
 .ew-guide-image--ac{aspect-ratio:1080 / 610}
 .ew-guide-image--ac img{top:-62.2951%}
+#model-guide-small{container-type:inline-size}
+.ew-guide-image--table{min-width:720px}
+@container(max-width:721px){
+  #model-guide-small .ew-guide-scroll-note{display:block;margin:0 0 8px;font-size:13px}
+}
 @media(max-width:600px){
   .ew-guide-dialog{padding:34px 14px 16px}
   .ew-guide-dialog .ew-guide-scroll-note{display:block;margin:0 0 8px;font-size:13px}
@@ -850,6 +855,10 @@
   <article id="model-guide-small" hidden>
     <h2 id="model-guide-small-title">Hướng dẫn tìm Model/Serial cho đồ gia dụng nhỏ</h2>
     <p>Với máy sấy tóc, kiểm tra nhãn trên thân hoặc tay cầm. Tìm Model No. (mã model) và Serial No. (số sê-ri) nếu có. Với thiết bị khác, xem hướng dẫn sử dụng của sản phẩm để xác định vị trí tem.</p>
+    <p class="ew-guide-scroll-note">Vuốt ngang để xem toàn bộ hình.</p>
+    <div class="ew-guide-image-view" tabindex="0" role="region" aria-label="Hình hướng dẫn cho đồ gia dụng nhỏ">
+      <div class="ew-guide-image ew-guide-image--table"><img src="assets/popup-huongdankichhoat.png" alt="Bảng vị trí và ví dụ về mã Model Number và Serial Number của đồ gia dụng nhỏ Panasonic" width="1920" height="1080" loading="lazy"></div>
+    </div>
   </article>
 </dialog>
 
